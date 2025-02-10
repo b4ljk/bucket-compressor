@@ -3,3 +3,5 @@
 .chalice/config.json
 .chalice/**
 __pycache__
+# except for the following files
+!.chalice/.gitinclude
