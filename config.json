@@ -1,0 +1,38 @@
+{
+  "version": "2.0",
+  "app_name": "image-processor",
+  "stages": {
+    "dev": {
+      "api_gateway_stage": "api",
+      "environment_variables": {
+        "S3_BUCKET": "example-image-processor-bucket",
+        "S3_REGION": "us-east-1",
+        "OUTPUT_BUCKET": "example-image-processor-bucket",
+        "OUTPUT_DIRECTORY": "processed/",
+        "INPUT_PREFIX": "uploads/",
+        "MAX_IMAGE_SIZE": "1024",
+        "COMPRESSION_QUALITY": "90",
+        "ENABLE_WATERMARK": "true",
+        "NOTIFICATION_TOPIC": "image-processing-notifications"
+      },
+      "iam_role_arn": "arn:aws:iam::123456789012:role/image-processor-dev"
+    },
+    "prod": {
+      "api_gateway_stage": "api",
+      "environment_variables": {
+        "S3_BUCKET": "example-image-processor-bucket-prod",
+        "S3_REGION": "us-east-1",
+        "OUTPUT_BUCKET": "example-image-processor-bucket-prod",
+        "OUTPUT_DIRECTORY": "processed/",
+        "INPUT_PREFIX": "uploads/",
+        "MAX_IMAGE_SIZE": "1024",
+        "COMPRESSION_QUALITY": "90",
+        "ENABLE_WATERMARK": "true",
+        "NOTIFICATION_TOPIC": "image-processing-notifications-prod"
+      },
+      "iam_role_arn": "arn:aws:iam::123456789012:role/image-processor-prod",
+      "lambda_memory_size": 1024,
+      "lambda_timeout": 300
+    }
+  }
+}
